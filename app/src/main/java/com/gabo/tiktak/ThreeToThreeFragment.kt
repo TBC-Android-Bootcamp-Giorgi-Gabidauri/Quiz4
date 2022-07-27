@@ -27,27 +27,39 @@ class ThreeToThreeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        list.clear()
-        repeat(9) {
-            list.add(Item(R.drawable.ic_square, null, true))
-        }
 
+
+        setList()
         adapter = TicTacAdapter {
             setImageResource(it)
             checkWinner()
             it.isClickable = false
+            adapter.notifyDataSetChanged()
         }
         binding?.let {
             it.apply {
                 btnStartAgain.setOnClickListener {
-                    adapter.submitList(list)
+                    adapter.submitList(setList())
                     tvWinner.text = null
+                    adapter.notifyDataSetChanged()
                 }
                 rv.adapter = adapter
                 rv.layoutManager = GridLayoutManager(requireContext(), 3)
             }
         }
-        adapter.submitList(list)
+        adapter.submitList(setList())
+        adapter.notifyDataSetChanged()
+    }
+
+    private fun setList() : MutableList<Item> {
+        val currentList = mutableListOf<Item>()
+        currentList.clear()
+        repeat(9) {
+            currentList.add(Item(R.drawable.ic_square, null, true))
+        }
+        list.clear()
+        list = currentList
+        return list
     }
 
     private fun setImageResource(item: Item) {
@@ -138,6 +150,7 @@ class ThreeToThreeFragment : Fragment() {
                     }
                 }
             }
+            else -> {}
         }
         binding?.tvWinner?.text = winner
     }

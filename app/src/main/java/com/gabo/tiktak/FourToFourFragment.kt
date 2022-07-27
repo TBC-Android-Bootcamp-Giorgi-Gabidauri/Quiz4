@@ -64,21 +64,7 @@ class FourToFourFragment : Fragment() {
             dataProvider.list[0].imgResource != null -> {
                 when {
                     dataProvider.list[0].imgResource == dataProvider.list[1].imgResource && dataProvider.list[1].imgResource == dataProvider.list[2].imgResource && dataProvider.list[1].imgResource == dataProvider.list[3].imgResource -> {
-                        winner = if (dataProvider.list[2].imgResource == R.drawable.ic_x) {
-                            "Winner Is X"
-                        } else {
-                            "Winner Is O"
-                        }
-                    }
-                    dataProvider.list[0].imgResource == dataProvider.list[4].imgResource && dataProvider.list[4].imgResource == dataProvider.list[8].imgResource -> {
-                        winner = if (dataProvider.list[8].imgResource == R.drawable.ic_x) {
-                            "Winner Is X"
-                        } else {
-                            "Winner Is O"
-                        }
-                    }
-                    dataProvider.list[0].imgResource == dataProvider.list[3].imgResource && dataProvider.list[3].imgResource == dataProvider.list[6].imgResource -> {
-                        winner = if (dataProvider.list[2].imgResource == R.drawable.ic_x) {
+                        winner = if (dataProvider.list[0].imgResource == R.drawable.ic_x) {
                             "Winner Is X"
                         } else {
                             "Winner Is O"
