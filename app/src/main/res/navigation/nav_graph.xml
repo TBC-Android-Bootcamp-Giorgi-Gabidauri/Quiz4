@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/startPageFragment">
+
+    <fragment
+        android:id="@+id/startPageFragment"
+        android:name="com.gabo.tiktak.StartPageFragment"
+        android:label="fragment_start_page"
+        tools:layout="@layout/fragment_start_page" >
+        <action
+            android:id="@+id/action_startPageFragment_to_threeToThreeFragment"
+            app:destination="@id/threeToThreeFragment" />
+        <action
+            android:id="@+id/action_startPageFragment_to_fourToFourFragment"
+            app:destination="@id/fourToFourFragment" />
+        <action
+            android:id="@+id/action_startPageFragment_to_fiveToFiveFragment"
+            app:destination="@id/fiveToFiveFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/threeToThreeFragment"
+        android:name="com.gabo.tiktak.ThreeToThreeFragment"
+        android:label="fragment_three_to_three"
+        tools:layout="@layout/fragment_three_to_three" />
+    <fragment
+        android:id="@+id/fourToFourFragment"
+        android:name="com.gabo.tiktak.FourToFourFragment"
+        android:label="fragment_four_to_four"
+        tools:layout="@layout/fragment_four_to_four" />
+    <fragment
+        android:id="@+id/fiveToFiveFragment"
+        android:name="com.gabo.tiktak.FiveToFiveFragment"
+        android:label="fragment_five_to_five"
+        tools:layout="@layout/fragment_five_to_five" />
+</navigation>
